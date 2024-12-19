@@ -29,7 +29,10 @@ echo -e "\nWinner of the 2018 tournament team name:"
 echo "$($PSQL "SELECT name from games full join teams on games.winner_id = teams.team_id where year=2018 and round='Final';")"
 
 echo -e "\nList of teams who played in the 2014 'Eighth-Final' round:"
+# my solution below
 echo "$($PSQL "select name from teams full join games on teams.team_id in (games.winner_id, games.opponent_id) where year=2014 and round='Eighth-Final' order by name;")"
+# alternative solution from GPT below (uses join instead of full join - more efficient)
+# echo "$($PSQL "SELECT DISTINCT name FROM teams JOIN games ON teams.team_id IN (games.winner_id, games.opponent_id) WHERE year=2014 AND round='Eighth-Final' ORDER BY name;")"
 
 echo -e "\nList of unique winning team names in the whole data set:"
 echo "$($PSQL "select distinct(name) from games left join teams on games.winner_id=teams.team_id order by name;")"
