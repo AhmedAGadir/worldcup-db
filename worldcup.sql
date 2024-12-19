@@ -16,6 +16,29 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+DROP DATABASE worldcup;
+--
+-- Name: worldcup; Type: DATABASE; Schema: -; Owner: freecodecamp
+--
+
+CREATE DATABASE worldcup WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
+
+
+ALTER DATABASE worldcup OWNER TO freecodecamp;
+
+\connect worldcup
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
@@ -111,72 +134,68 @@ ALTER TABLE ONLY public.teams ALTER COLUMN team_id SET DEFAULT nextval('public.t
 -- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-COPY public.games (game_id, year, round, winner_id, opponent_id, winner_goals, opponent_goals) FROM stdin;
-9	2018	Final	30	31	4	2
-10	2018	Third Place	32	33	2	0
-11	2018	Semi-Final	31	33	2	1
-12	2018	Semi-Final	30	32	1	0
-13	2018	Quarter-Final	31	34	3	2
-14	2018	Quarter-Final	33	35	2	0
-15	2018	Quarter-Final	32	36	2	1
-16	2018	Quarter-Final	30	37	2	0
-17	2018	Eighth-Final	33	38	2	1
-18	2018	Eighth-Final	35	39	1	0
-19	2018	Eighth-Final	32	40	3	2
-20	2018	Eighth-Final	36	41	2	0
-21	2018	Eighth-Final	31	42	2	1
-22	2018	Eighth-Final	34	43	2	1
-23	2018	Eighth-Final	37	44	2	1
-24	2018	Eighth-Final	30	45	4	3
-25	2014	Final	46	45	1	0
-26	2014	Third Place	47	36	3	0
-27	2014	Semi-Final	45	47	1	0
-28	2014	Semi-Final	46	36	7	1
-29	2014	Quarter-Final	47	48	1	0
-30	2014	Quarter-Final	45	32	1	0
-31	2014	Quarter-Final	36	38	2	1
-32	2014	Quarter-Final	46	30	1	0
-33	2014	Eighth-Final	36	49	2	1
-34	2014	Eighth-Final	38	37	2	0
-35	2014	Eighth-Final	30	50	2	0
-36	2014	Eighth-Final	46	51	2	1
-37	2014	Eighth-Final	47	41	2	1
-38	2014	Eighth-Final	48	52	2	1
-39	2014	Eighth-Final	45	39	1	0
-40	2014	Eighth-Final	32	53	2	1
-\.
+INSERT INTO public.games VALUES (9, 2018, 'Final', 30, 31, 4, 2);
+INSERT INTO public.games VALUES (10, 2018, 'Third Place', 32, 33, 2, 0);
+INSERT INTO public.games VALUES (11, 2018, 'Semi-Final', 31, 33, 2, 1);
+INSERT INTO public.games VALUES (12, 2018, 'Semi-Final', 30, 32, 1, 0);
+INSERT INTO public.games VALUES (13, 2018, 'Quarter-Final', 31, 34, 3, 2);
+INSERT INTO public.games VALUES (14, 2018, 'Quarter-Final', 33, 35, 2, 0);
+INSERT INTO public.games VALUES (15, 2018, 'Quarter-Final', 32, 36, 2, 1);
+INSERT INTO public.games VALUES (16, 2018, 'Quarter-Final', 30, 37, 2, 0);
+INSERT INTO public.games VALUES (17, 2018, 'Eighth-Final', 33, 38, 2, 1);
+INSERT INTO public.games VALUES (18, 2018, 'Eighth-Final', 35, 39, 1, 0);
+INSERT INTO public.games VALUES (19, 2018, 'Eighth-Final', 32, 40, 3, 2);
+INSERT INTO public.games VALUES (20, 2018, 'Eighth-Final', 36, 41, 2, 0);
+INSERT INTO public.games VALUES (21, 2018, 'Eighth-Final', 31, 42, 2, 1);
+INSERT INTO public.games VALUES (22, 2018, 'Eighth-Final', 34, 43, 2, 1);
+INSERT INTO public.games VALUES (23, 2018, 'Eighth-Final', 37, 44, 2, 1);
+INSERT INTO public.games VALUES (24, 2018, 'Eighth-Final', 30, 45, 4, 3);
+INSERT INTO public.games VALUES (25, 2014, 'Final', 46, 45, 1, 0);
+INSERT INTO public.games VALUES (26, 2014, 'Third Place', 47, 36, 3, 0);
+INSERT INTO public.games VALUES (27, 2014, 'Semi-Final', 45, 47, 1, 0);
+INSERT INTO public.games VALUES (28, 2014, 'Semi-Final', 46, 36, 7, 1);
+INSERT INTO public.games VALUES (29, 2014, 'Quarter-Final', 47, 48, 1, 0);
+INSERT INTO public.games VALUES (30, 2014, 'Quarter-Final', 45, 32, 1, 0);
+INSERT INTO public.games VALUES (31, 2014, 'Quarter-Final', 36, 38, 2, 1);
+INSERT INTO public.games VALUES (32, 2014, 'Quarter-Final', 46, 30, 1, 0);
+INSERT INTO public.games VALUES (33, 2014, 'Eighth-Final', 36, 49, 2, 1);
+INSERT INTO public.games VALUES (34, 2014, 'Eighth-Final', 38, 37, 2, 0);
+INSERT INTO public.games VALUES (35, 2014, 'Eighth-Final', 30, 50, 2, 0);
+INSERT INTO public.games VALUES (36, 2014, 'Eighth-Final', 46, 51, 2, 1);
+INSERT INTO public.games VALUES (37, 2014, 'Eighth-Final', 47, 41, 2, 1);
+INSERT INTO public.games VALUES (38, 2014, 'Eighth-Final', 48, 52, 2, 1);
+INSERT INTO public.games VALUES (39, 2014, 'Eighth-Final', 45, 39, 1, 0);
+INSERT INTO public.games VALUES (40, 2014, 'Eighth-Final', 32, 53, 2, 1);
 
 
 --
 -- Data for Name: teams; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-COPY public.teams (team_id, name) FROM stdin;
-30	France
-31	Croatia
-32	Belgium
-33	England
-34	Russia
-35	Sweden
-36	Brazil
-37	Uruguay
-38	Colombia
-39	Switzerland
-40	Japan
-41	Mexico
-42	Denmark
-43	Spain
-44	Portugal
-45	Argentina
-46	Germany
-47	Netherlands
-48	Costa Rica
-49	Chile
-50	Nigeria
-51	Algeria
-52	Greece
-53	United States
-\.
+INSERT INTO public.teams VALUES (30, 'France');
+INSERT INTO public.teams VALUES (31, 'Croatia');
+INSERT INTO public.teams VALUES (32, 'Belgium');
+INSERT INTO public.teams VALUES (33, 'England');
+INSERT INTO public.teams VALUES (34, 'Russia');
+INSERT INTO public.teams VALUES (35, 'Sweden');
+INSERT INTO public.teams VALUES (36, 'Brazil');
+INSERT INTO public.teams VALUES (37, 'Uruguay');
+INSERT INTO public.teams VALUES (38, 'Colombia');
+INSERT INTO public.teams VALUES (39, 'Switzerland');
+INSERT INTO public.teams VALUES (40, 'Japan');
+INSERT INTO public.teams VALUES (41, 'Mexico');
+INSERT INTO public.teams VALUES (42, 'Denmark');
+INSERT INTO public.teams VALUES (43, 'Spain');
+INSERT INTO public.teams VALUES (44, 'Portugal');
+INSERT INTO public.teams VALUES (45, 'Argentina');
+INSERT INTO public.teams VALUES (46, 'Germany');
+INSERT INTO public.teams VALUES (47, 'Netherlands');
+INSERT INTO public.teams VALUES (48, 'Costa Rica');
+INSERT INTO public.teams VALUES (49, 'Chile');
+INSERT INTO public.teams VALUES (50, 'Nigeria');
+INSERT INTO public.teams VALUES (51, 'Algeria');
+INSERT INTO public.teams VALUES (52, 'Greece');
+INSERT INTO public.teams VALUES (53, 'United States');
 
 
 --
